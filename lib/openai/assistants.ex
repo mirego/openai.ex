@@ -3,10 +3,10 @@ defmodule OpenAI.Assistants do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/assistants"
+  @path "/assistants"
 
-  def url(), do: @base_url
-  def url(assistant_id), do: "#{@base_url}/#{assistant_id}"
+  def url(), do: Config.base_url() <> @path
+  def url(assistant_id), do: Config.base_url() <> "#{@path}/#{assistant_id}"
 
   def fetch(params, config \\ %Config{}) do
     url()

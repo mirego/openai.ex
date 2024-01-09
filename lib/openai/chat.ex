@@ -3,9 +3,9 @@ defmodule OpenAI.Chat do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/chat/completions"
+  @path "/chat/completions"
 
-  def url(), do: @base_url
+  def url(), do: Config.base_url() <> @path
 
   def fetch(params, config \\ %Config{}) do
     url()

@@ -3,14 +3,14 @@ defmodule OpenAI.Threads.Runs do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/threads"
+  @path "/threads"
 
-  def url(thread_id), do: "#{@base_url}/#{thread_id}/runs"
-  def url(thread_id, run_id), do: "#{@base_url}/#{thread_id}/runs/#{run_id}"
-  def cancel_url(thread_id, run_id), do: "#{@base_url}/#{thread_id}/runs/#{run_id}/cancel"
+  def url(thread_id), do: Config.base_url() <> "#{@path}/#{thread_id}/runs"
+  def url(thread_id, run_id), do: Config.base_url() <> "#{@path}/#{thread_id}/runs/#{run_id}"
+  def cancel_url(thread_id, run_id), do: Config.base_url() <> "#{@path}/#{thread_id}/runs/#{run_id}/cancel"
 
   def submit_tool_outputs_url(thread_id, run_id),
-    do: "#{@base_url}/#{thread_id}/runs/#{run_id}/submit_tool_outputs"
+    do: Config.base_url() <> "#{@path}/#{thread_id}/runs/#{run_id}/submit_tool_outputs"
 
   def fetch(thread_id, params \\ [], config \\ %Config{}) do
     url(thread_id)

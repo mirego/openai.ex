@@ -3,10 +3,10 @@ defmodule OpenAI.Engines do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @engines_base_url "/v1/engines"
+  @path "/engines"
 
-  def url(), do: @engines_base_url
-  def url(engine_id), do: "#{@engines_base_url}/#{engine_id}"
+  def url(), do: Config.base_url() <> @path
+  def url(engine_id), do: Config.base_url() <> "#{@path}/#{engine_id}"
 
   def fetch_by_id(engine_id, config \\ %Config{}) do
     url(engine_id)

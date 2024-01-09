@@ -3,10 +3,10 @@ defmodule OpenAI.Assistants.Files do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/assistants"
+  @path "/assistants"
 
-  def url(assistant_id), do: "#{@base_url}/#{assistant_id}/files"
-  def url(assistant_id, file_id), do: "#{@base_url}/#{assistant_id}/files/#{file_id}"
+  def url(assistant_id), do: Config.base_url() <> "#{@path}/#{assistant_id}/files"
+  def url(assistant_id, file_id), do: Config.base_url() <> "#{@path}/#{assistant_id}/files/#{file_id}"
 
   def fetch(assistant_id, params \\ [], config \\ %Config{}) do
     url(assistant_id)

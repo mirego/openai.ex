@@ -3,11 +3,11 @@ defmodule OpenAI.Threads do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/threads"
+  @path "/threads"
 
-  def url(), do: @base_url
-  def url(thread_id), do: "#{@base_url}/#{thread_id}"
-  def runs_url(), do: "#{@base_url}/runs"
+  def url(), do: Config.base_url() <> @path
+  def url(thread_id), do: Config.base_url() <> "#{@path}/#{thread_id}"
+  def runs_url(), do: Config.base_url() <> "#{@path}/runs"
 
   def fetch(params, config \\ %Config{}) do
     url()

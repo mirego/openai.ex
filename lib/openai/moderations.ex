@@ -3,9 +3,9 @@ defmodule OpenAI.Moderations do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @moderations_base_url "/v1/moderations"
+  @path "/moderations"
 
-  def url(), do: @moderations_base_url
+  def url(), do: Config.base_url() <> @path
 
   def fetch(params, config \\ %Config{}) do
     url()

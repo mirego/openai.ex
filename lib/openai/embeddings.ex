@@ -3,9 +3,9 @@ defmodule OpenAI.Embeddings do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @embeddings_base_url "/v1/embeddings"
+  @path "/embeddings"
 
-  def url(), do: @embeddings_base_url
+  def url(), do: Config.base_url() <> @path
 
   def fetch(params, config \\ %Config{}) do
     url()

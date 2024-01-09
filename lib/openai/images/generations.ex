@@ -3,9 +3,9 @@ defmodule OpenAI.Images.Generations do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/images/generations"
+  @path "/images/generations"
 
-  def url(), do: @base_url
+  def url(), do: Config.base_url() <> @path
 
   def fetch(params, config \\ %Config{}) do
     url()

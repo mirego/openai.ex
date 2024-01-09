@@ -3,11 +3,11 @@ defmodule OpenAI.Completions do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @base_url "/v1/completions"
-  @engines_base_url "/v1/engines"
+  @path "/completions"
+  @engines_path "/engines"
 
-  def url(), do: @base_url
-  def deprecated_url(engine_id), do: "#{@engines_base_url}/#{engine_id}/completions"
+  def url(), do: Config.base_url() <> @path
+  def deprecated_url(engine_id), do: Config.base_url() <> "#{@engines_path}/#{engine_id}/completions"
 
   def fetch(params, config \\ %Config{}) do
     url()

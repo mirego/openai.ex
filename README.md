@@ -48,6 +48,30 @@ Note: you can load your os ENV variables in the configuration file, if you set a
 
 ⚠️`config.exs` is compile time, so the `get_env/1` function is executed during the build, if you want to get the env variables during runtime please use `runtime.exs` instead of `config.exs` in your application ([elixir doc ref](https://elixir-lang.org/getting-started/mix-otp/config-and-releases.html#configuration)).
 
+## Azure OpenAI Service configuration
+If you are using the Azure OpenAI services you can update your config.exs as described below.
+
+```elixir
+import Config
+
+config :openai,
+  # Type of the API
+  api_type: "azure",
+
+  # Version of the OpenAI API currently used
+  api_version: "2023-05-15",
+
+  # URL of your Azure service
+  api_url: "https://YOUR_RESOURCE_NAME.openai.azure.com",
+
+  # Azure API key
+  api_key: "...",
+
+  # This will correspond to the custom name you chose for your deployment when you deployed a model
+  api_deployment_name: "...",
+
+```
+
 ## Configuration override
 Client library configuration can be overwritten in runtime by passing a `%OpenAI.Config{}` struct as last argument of the function you need to use. For instance if you need to use a different `api_key`, `organization_key` or `http_options` you can simply do:
 

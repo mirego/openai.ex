@@ -3,10 +3,10 @@ defmodule OpenAI.Models do
   alias OpenAI.Client
   alias OpenAI.Config
 
-  @models_base_url "/v1/models"
+  @path "/models"
 
-  def url(), do: @models_base_url
-  def url(model_id), do: "#{@models_base_url}/#{model_id}"
+  def url(), do: Config.base_url() <> @path
+  def url(model_id), do: Config.base_url() <> "#{@path}/#{model_id}"
 
   def fetch_by_id(model_id, config \\ %Config{}) do
     url(model_id)
