@@ -5,7 +5,7 @@ defmodule OpenAI.Images.Generations do
 
   @path "/images/generations"
 
-  def url(), do: Config.base_url() <> @path
+  def url(), do: "/openai/deployments/deployment-dall-e-3" <> @path
 
   def fetch(params, config \\ %Config{}) do
     url()
